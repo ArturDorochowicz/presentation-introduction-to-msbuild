@@ -115,7 +115,7 @@
         </section>
 
         <section>
-            <h2>Predefined properties</h2>
+            <h2>Predefined Properties</h2>
 
             <ul>
                 <li>$(MSBuildProjectDirectory)</li>
@@ -131,7 +131,7 @@
                 </li>
             </ul>
 
-            <aside>
+            <aside class="notes">
                 Reserved properties - cannot be overwritten.
                 Well-known properties - can be overwritten.
 
@@ -139,6 +139,69 @@
             </aside>
 
         </section>
+
+        <section>
+            <h2>Property Functions - .NET</h2>
+
+            <p>System.String instance methods.</p>
+
+            <pre><code data-trim contenteditable>
+&lt;PropertyGroup>
+    &lt;Sample>FooBar&lt;/Sample>
+    &lt;Sub>$(Sample.Substring(0, 3)) &lt;/Sub>
+    &lt;Contains>$(Sample.Contains("Bar")&lt;/Contains>
+&lt;/PropertyGroup>
+            </code></pre>
+
+        </section>
+
+        <section>
+            <h2>Property Functions - .NET</h2>
+
+            <p>All static methods and properties on selected .NET types.</p>
+
+            <pre><code data-trim contenteditable>
+&lt;PropertyGroup>
+    &lt;NewGuid>$([System.Guid]::NewGuid())&lt;/NewGuid>
+    &lt;Today>$([System.DateTime]::Now.ToString("yyyy-MM-dd"))&lt;/Today>
+    &lt;Power>$([System.Math]::Pow(2,8))&lt;/Power>
+    &lt;TempFile>$([System.IO.Path]::GetTempFileName())&lt;/TempFile>
+&lt;/PropertyGroup>
+            </code></pre>
+
+            <p>
+                Selected methods and properties on: System.Environment, System.IO.Directory, System.IO.File
+                <a href="http://msdn.microsoft.com/en-us/library/dd633440.aspx" target="_blank">
+                    http://msdn.microsoft.com/en-us/library/dd633440.aspx</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Property Functions - MSBuild</h2>
+
+            <pre><code data-trim contenteditable>
+&lt;PropertyGroup>
+    &lt;Value>
+        $([MSBuild]::MakeRelative(
+            $(FileOrFolderPath1), $(FileOrFolderPath2)))
+
+        $([MSBuild]::GetRegistryValue(
+            'HKEY_LOCAL_MACHINE\SOFTWARE\(SampleName)', '(SampleValue)'))
+
+        $([MSBuild]::Add($(NumberOne), $(NumberTwo))
+
+        $([MSBuild]::BitwiseAnd(
+            32, $([System.IO.File]::GetAttributes(tempFile))))
+    &lt;/Value>
+&lt;/PropertyGroup>
+            </code></pre>
+
+            <p>
+                <a href="http://msdn.microsoft.com/en-us/library/dd633440.aspx" target="_blank">
+                    http://msdn.microsoft.com/en-us/library/dd633440.aspx</a>
+            </p>
+        </section>
+
 
         <section>
             <h2>DEMO</h2>
