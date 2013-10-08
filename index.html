@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title></title>
+    <title>Introduction to MSBuild</title>
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -34,7 +34,10 @@
             <h2>Introduction to MSBuild</h2>
             <p>
                 <small>Artur Dorochowicz</small><br/>
-                <small><a href="https://www.github.com/ArturDorochowicz/">https://www.github.com/ArturDorochowicz/</a></small>
+                <small>
+                    <a href="https://www.github.com/ArturDorochowicz/" target="_blank">
+                        https://www.github.com/ArturDorochowicz/</a>
+                </small>
             </p>
         </section>
 
@@ -112,20 +115,28 @@
         </section>
 
         <section>
-            <h2>Properties</h2>
+            <h2>Predefined properties</h2>
 
             <ul>
-                <li>Scalar values</li>
-                <li>Reference with $(property)</li>
+                <li>$(MSBuildProjectDirectory)</li>
+                <li>$(MSBuildThisFileDirectory)</li>
+                <li>$(MSBuildLastTaskResult)</li>
+                <li>$(MSBuildBinPath)</li>
+                <li>$(MSBuildExtensionsPath)</li>
+                <li>$(MSBuildToolsPath)</li>
+                <li>
+                    and others:
+                    <a href="http://msdn.microsoft.com/en-us/library/vstudio/ms164309.aspx" target="_blank">
+                        http://msdn.microsoft.com/en-us/library/vstudio/ms164309.aspx</a>
+                </li>
             </ul>
 
-            <pre><code data-trim contenteditable>
-&lt;PropertyGroup>
-    &lt;FirstName>John&lt;/FirstName>
-    &lt;LastName>Doe&lt;LastName>
-    &lt;FullName>$(FirstName) $(LastName)&lt;FullName>
-&lt;/PropertyGroup>
-            </code></pre>
+            <aside>
+                Reserved properties - cannot be overwritten.
+                Well-known properties - can be overwritten.
+
+                Common VS projects properties: http://msdn.microsoft.com/en-us/library/vstudio/bb629394.aspx
+            </aside>
 
         </section>
 
