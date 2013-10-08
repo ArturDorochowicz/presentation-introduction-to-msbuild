@@ -64,7 +64,8 @@
 
             <pre><code data-trim contenteditable>
 &lt;Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
-         DefaultTargets="Foo; Bar">
+         DefaultTargets="Foo; Bar"
+         InitialTargets="Baz">
     &lt;Import Project="MyCustom.targets" />
 &lt;/Project>
             </code></pre>
@@ -76,6 +77,7 @@
 
             <ul>
                 <li>Targets form the dependency tree</li>
+                <li><em>Build</em>, <em>Rebuild</em> and <em>Clean</em> are targets</li>
                 <li>Target is only run once in a given build</li>
             </ul>
 
@@ -91,8 +93,46 @@
         </section>
 
         <section>
+            <h2>Properties</h2>
+
+            <ul>
+                <li>Scalar values</li>
+                <li>No need to <em>declare</em> before use</em>
+                <li>Reference with $(property)</li>
+            </ul>
+
+            <pre><code data-trim contenteditable>
+&lt;PropertyGroup>
+    &lt;FirstName>John&lt;/FirstName>
+    &lt;LastName>Doe&lt;LastName>
+    &lt;FullName>$(FirstName) $(LastName)&lt;FullName>
+&lt;/PropertyGroup>
+            </code></pre>
+
+        </section>
+
+        <section>
+            <h2>Properties</h2>
+
+            <ul>
+                <li>Scalar values</li>
+                <li>Reference with $(property)</li>
+            </ul>
+
+            <pre><code data-trim contenteditable>
+&lt;PropertyGroup>
+    &lt;FirstName>John&lt;/FirstName>
+    &lt;LastName>Doe&lt;LastName>
+    &lt;FullName>$(FirstName) $(LastName)&lt;FullName>
+&lt;/PropertyGroup>
+            </code></pre>
+
+        </section>
+
+        <section>
             <h2>DEMO</h2>
         </section>
+
         <section>
             <section>
                 <h2>Vertical Slides</h2>
