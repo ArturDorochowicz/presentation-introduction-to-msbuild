@@ -107,7 +107,9 @@
             <pre><code data-trim contenteditable>
 &lt;PropertyGroup>
     &lt;FirstName>John&lt;/FirstName>
+
     &lt;LastName>Doe&lt;LastName>
+
     &lt;FullName>$(FirstName) $(LastName)&lt;FullName>
 &lt;/PropertyGroup>
             </code></pre>
@@ -152,7 +154,9 @@
             <pre><code data-trim contenteditable>
 &lt;PropertyGroup>
     &lt;Sample>FooBar&lt;/Sample>
+
     &lt;Sub>$(Sample.Substring(0, 3)) &lt;/Sub>
+
     &lt;Contains>$(Sample.Contains("Bar")&lt;/Contains>
 &lt;/PropertyGroup>
             </code></pre>
@@ -206,6 +210,35 @@
             </p>
         </section>
 
+        <section>
+            <h2>Items</h2>
+
+            <ul>
+                <li>Vector values</li>
+                <li>Usually lists of files</li>
+            </ul>
+
+            <pre><code data-trim contenteditable>
+&lt;ItemGroup>
+    &lt;File Include="path\to\file.txt" />
+
+    &lt;Files Include="path\to\file.txt; path\to\another.txt" />
+
+    &lt;FilesWildcard Include="path\to\*.txt" />
+
+    &lt;FilesRecursiveWildcard Include="path\**\*.txt" />
+
+    &lt;SomeFilesButNotOthers Include="path\to\*.txt"
+        Exclude="path\to\not-this-one.txt" />
+
+    &lt;FilesAdd Include="path\to\fileA.txt" />
+
+    &lt;FilesAdd Include="path\to\fileB.txt; fileC.xml"
+        Exclude="**\*.txt" />
+&lt;/ItemGroup>
+            </code></pre>
+
+        </section>
 
         <section>
             <h2>DEMO</h2>
