@@ -214,8 +214,7 @@
             <h2>Items</h2>
 
             <ul>
-                <li>Vector values</li>
-                <li>Usually lists of files</li>
+                <li>Lists of values, usually files</li>
             </ul>
 
             <pre><code data-trim contenteditable>
@@ -237,6 +236,33 @@
         Exclude="**\*.txt" />
 &lt;/ItemGroup>
             </code></pre>
+
+        </section>
+
+        <section>
+            <h2>Well-known item metadata</h2>
+
+            <pre><code data-trim contenteditable>
+            &lt;!-- C:\MyProject\Source\Program.cs -->
+&lt;ItemGroup>
+    &lt;MyItem Include="Source\Program.cs" />
+&lt;/ItemGroup>
+            </pre></code>
+
+            <ul>
+                <li>%(FullPath) <em>C:\MyProject\Source\Program.cs</em></li>
+                <li>%(RootDir) <em>C:\</em></li>
+                <li>%(Filename) <em>Program</em></li>
+                <li>%(Extension) <em>.cs</em></li>
+                <li>%(RelativeDir) <em>Source\</em></li>
+                <li>%(Directory) <em>MyProject\Source\</em></li>
+                <li>%(RecursiveDir) here empty; path matched by ** wildcard</li>
+                <li>%(Identity) <em>Source\Program.cs</em></li>
+                <li>%(ModifiedTime), %(CreatedTime), %(AccessedTime) <br/>
+                    e.g. <em>2004-08-14 16:52:36.3168743</em></li>
+                <li><a href="http://msdn.microsoft.com/en-us/library/vstudio/ms164313.aspx">
+                    http://msdn.microsoft.com/en-us/library/vstudio/ms164313.aspx</a></li>
+            </ul>
 
         </section>
 
