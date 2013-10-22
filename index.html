@@ -392,16 +392,53 @@
         </section>
 
         <section>
-            <h2>Inline tasks</h2>
+            <section>
+                <h2>Inline tasks</h2>
 
-            <pre><code data-trim contenteditable>
+                <aside class="notes">
+                    Parameter type is optional and defaults to string.
+                    Full type name must be used (e.g. System.Boolean).
+                </aside>
+            </section>
+
+            <section>
+                <pre><code data-trim contenteditable>
+&lt;UsingTask TaskName="FilterList" TaskFactory="CodeTaskFactory"
+  AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+  &lt;ParameterGroup>
+    &lt;ListToFilter ParameterType="Microsoft.Build.Framework.ITaskItem[]"
+      Required="true" />
+    &lt;Filter Required="true" />
+    &lt;FilteredList ParameterType="Microsoft.Build.Framework.ITaskItem[]"
+      Output="true" />
+  &lt;/ParameterGroup>
+  &lt;Task>
+    &lt;Using Namespace="System.Text.RegularExpressions" />
+    &lt;Code Type="Fragment" Language="cs">
+      &lt;![CDATA[
+        var results = ListToFilter
+          .Where(x => Regex.IsMatch(x.ItemSpec, Filter));
+        FilteredList = results.ToArray();
+      ]]>
+    &lt;/Code>
+  &lt;/Task>
+&lt;/UsingTask>
+                </pre></code>
+            </section>
+
+            <section>
+                <pre><code data-trim contenteditable>
 &lt;ItemGroup>
-    &lt;MyItem Include="file.txt">
-        &lt;Custom2>other&lt;/Custom2>
-        &lt;Custom3>3&lt;/Custom3>
-    &lt;/MyItem>
+  &lt;Source Include="file.txt; file.cs" />
 &lt;/ItemGroup>
-            </pre></code>
+
+&lt;Target Name="MyTarget">
+  &lt;FilterList ListToFilter="@(Source)" Filter="\.cs$">
+    &lt;Output ItemName="_FilteredList" TaskParameter="FilteredList" />
+  &lt;/FilterList>
+&lt;/Target>
+                </pre></code>
+            </section>
         </section>
 
         <section>
