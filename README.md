@@ -1,1 +1,4 @@
-# Introduction to MSBuild presentation
+# Introduction to MSBuild
+
+MSBuild 4.0
+
