@@ -1,0 +1,29 @@
+<Project DefaultTargets="MyTarget" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <TextToSpeak Condition="'$(TextToSpeak)' == ''">Hello World!</TextToSpeak>
+    </PropertyGroup>
+
+    <Target Name="SayIt">
+        <SayIt Text="$(TextToSpeak)" />
+    </Target>
+
+    <UsingTask TaskName="SayIt" TaskFactory="CodeTaskFactory"
+        AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+        <ParameterGroup>
+            <Text Required="true" />
+        </ParameterGroup>
+        <Task>
+            <Reference Include="System.Speech" />
+            <Using Namespace="System.Speech.Synthesis" />
+            <Code Type="Fragment" Language="cs">
+            <![CDATA[
+                var synth = new SpeechSynthesizer();
+                synth.Speak(Text);
+            ]]>
+            </Code>
+        </Task>
+    </UsingTask>
+
+</Project>
+

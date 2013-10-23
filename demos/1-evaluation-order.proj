@@ -1,0 +1,26 @@
+<Project DefaultTargets="MyTarget" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <Order>1 - outside, before targets</Order>
+    </PropertyGroup>
+
+    <Target Name="MyTarget">
+        <!-- Expect: 3 -->
+        <Message Text="Order: $(Order)" />
+    </Target>
+
+    <Target Name="BeforeMyTarget" BeforeTargets="MyTarget">
+        <!-- Expect: 2 -->
+        <Message Text="Order: $(Order)" />
+
+        <PropertyGroup>
+            <Order>3 - inside target</Order>
+        </PropertyGroup>
+    </Target>
+
+    <PropertyGroup>
+        <Order>2 - outside, after targets</Order>
+    </PropertyGroup>
+
+</Project>
+
