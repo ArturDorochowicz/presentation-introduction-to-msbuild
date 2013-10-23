@@ -43,11 +43,10 @@
             <h2>Agenda</h2>
             <ol>
                 <li>Building blocks</li>
+                <li>Visual Studio solution</li>
                 <li>Command line</li>
                 <li>Debugging</li>
-                <li>Patterns and practices</li>
-                <li>Code Analysis</li>
-                <li>StyleCop analysis</li>
+                <li>Demos</li>
             </ol>
         </section>
 
@@ -127,13 +126,15 @@
                 <li>$(MSBuildBinPath)</li>
                 <li>$(MSBuildExtensionsPath)</li>
                 <li>$(MSBuildToolsPath)</li>
-                <li>
-                    and others:
-                    <a href="http://msdn.microsoft.com/en-us/library/vstudio/ms164309.aspx" target="_blank">
-                        http://msdn.microsoft.com/en-us/library/vstudio/ms164309.aspx</a>
-                </li>
                 <li>Environment variables are available as properties</li>
             </ul>
+
+            <p>
+                <small>
+                    <a href="http://msdn.microsoft.com/en-us/library/vstudio/ms164309.aspx" target="_blank">
+                        http://msdn.microsoft.com/en-us/library/vstudio/ms164309.aspx</a>
+                </small>
+            </p>
 
             <aside class="notes">
                 Reserved properties - cannot be overwritten.
@@ -177,8 +178,13 @@
 
             <p>
                 Selected methods and properties on: System.Environment, System.IO.Directory, System.IO.File
-                <a href="http://msdn.microsoft.com/en-us/library/dd633440.aspx" target="_blank">
-                    http://msdn.microsoft.com/en-us/library/dd633440.aspx</a>
+            </p>
+
+            <p>
+                <small>
+                    <a href="http://msdn.microsoft.com/en-us/library/dd633440.aspx" target="_blank">
+                        http://msdn.microsoft.com/en-us/library/dd633440.aspx</a>
+                </small>
             </p>
         </section>
 
@@ -203,17 +209,19 @@
             </code></pre>
 
             <p>
-                <a href="http://msdn.microsoft.com/en-us/library/dd633440.aspx" target="_blank">
-                    http://msdn.microsoft.com/en-us/library/dd633440.aspx</a>
+                <small>
+                    <a href="http://msdn.microsoft.com/en-us/library/dd633440.aspx" target="_blank">
+                        http://msdn.microsoft.com/en-us/library/dd633440.aspx</a>
+                </small>
             </p>
         </section>
 
         <section>
             <h2>Items</h2>
 
-            <ul>
-                <li>Lists of values, usually files</li>
-            </ul>
+            <p>
+                Lists of values, usually files
+            </p>
 
             <pre><code data-trim contenteditable>
 &lt;ItemGroup>
@@ -258,9 +266,14 @@
                 <li>%(Identity) <em>Source\Program.cs</em></li>
                 <li>%(ModifiedTime), %(CreatedTime), %(AccessedTime) <br/>
                     e.g. <em>2004-08-14 16:52:36.3168743</em></li>
-                <li><a href="http://msdn.microsoft.com/en-us/library/vstudio/ms164313.aspx">
-                    http://msdn.microsoft.com/en-us/library/vstudio/ms164313.aspx</a></li>
             </ul>
+
+            <p>
+                <small>
+                    <a href="http://msdn.microsoft.com/en-us/library/vstudio/ms164313.aspx" target="_blank">
+                        http://msdn.microsoft.com/en-us/library/vstudio/ms164313.aspx</a>
+                </small>
+            </p>
 
         </section>
 
@@ -364,8 +377,10 @@
             </table>
 
             <p>
-                <a href="http://msdn.microsoft.com/en-us/library/7z253716(v=vs.100).aspx" target="_blank">
-                    http://msdn.microsoft.com/en-us/library/7z253716(v=vs.100).aspx</a>
+                <small>
+                    <a href="http://msdn.microsoft.com/en-us/library/7z253716(v=vs.100).aspx" target="_blank">
+                        http://msdn.microsoft.com/en-us/library/7z253716(v=vs.100).aspx</a>
+                </small>
             </p>
         </section>
 
@@ -464,8 +479,12 @@
             </ul>
         </section>
 
+        <section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+            <h2>Visual Studio solutions</h2>
+        </section>
+
         <section>
-            <h2>Visual Studio solution</h2>
+            <h2>MSBuild vs SLN</h2>
 
             <ul>
                 <li><em>.sln</em> - not an MSBuild XML project file</li>
@@ -516,8 +535,16 @@ msbuild.exe MySolution.sln
     /nodereuse:false
             </code></pre>
 
-            <p>Properties set on the command line become constants.</p>
+            <p>
+                Properties set on the command line become constants
+            </p>
 
+            <p>
+                <small>
+                    <a href="http://msdn.microsoft.com/en-us/library/vstudio/ms164311(v=vs.100).aspx" target="_blank">
+                        http://msdn.microsoft.com/en-us/library/vstudio/ms164311(v=vs.100).aspx</a>
+                </small>
+            </p>
 
             <aside class="notes">
                 Properties set from command line are constants.
@@ -572,8 +599,8 @@ SET MSBUILDDEBUGGING=1
             </aside>
         </section>
 
-        <section>
-            <h2>DEMO</h2>
+        <section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+            <h2>Demos</h2>
         </section>
 
         <section>
@@ -594,8 +621,6 @@ SET MSBUILDDEBUGGING=1
 
 <script>
 
-// Full list of configuration options available here:
-// https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
     controls: true,
     progress: true,
