@@ -1,7 +1,7 @@
 <Project DefaultTargets="MyTarget" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <PropertyGroup>
-        <TextToSpeak Condition="'$(TextToSpeak)' == ''">Hello World!</TextToSpeak>
+        <TextToSpeak>Hello World!</TextToSpeak>
     </PropertyGroup>
 
     <Target Name="MyTarget">
