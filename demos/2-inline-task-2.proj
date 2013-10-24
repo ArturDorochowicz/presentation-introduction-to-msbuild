@@ -4,7 +4,7 @@
         <TextToSpeak Condition="'$(TextToSpeak)' == ''">Hello World!</TextToSpeak>
     </PropertyGroup>
 
-    <Target Name="SayIt">
+    <Target Name="MyTarget">
         <SayIt Text="$(TextToSpeak)" />
     </Target>
 

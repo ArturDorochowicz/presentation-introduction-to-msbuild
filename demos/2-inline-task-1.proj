@@ -1,6 +1,6 @@
 <Project DefaultTargets="MyTarget" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-    <Target Name="FilterList">
+    <Target Name="MyTarget">
         <ItemGroup>
             <Source Include="file.txt; file.cs; file.xml; sub\file.cs" />
         </ItemGroup>
