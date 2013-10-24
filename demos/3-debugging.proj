@@ -1,0 +1,28 @@
+<Project DefaultTargets="MyTarget" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <Import Project="sub\3-debugging.targets" />
+
+    <ItemGroup>
+        <MyFiles Include="file-1.txt; file-2.txt" />
+    </ItemGroup>
+
+    <Target Name="MyTarget">
+        <ItemGroup>
+            <MyFiles Include="file-2.txt; file-3.txt" />
+        </ItemGroup>
+
+        <Message Text="@(MyFiles)" />
+
+        <Message Text="%24(Sub_MSBuildThisFileFullPath) = $(Sub_MSBuildThisFileFullPath)" />
+        <Message Text="%24(Sub_MSBuildThisFile) = $(Sub_MSBuildThisFile)" />
+        <Message Text="%24(Sub_MSBuildProjectFile) = $(Sub_MSBuildProjectFile)" />
+        <Message Text="%24(Sub_MSBuildProjectDirectory) = $(Sub_MSBuildProjectDirectory)" />
+
+        <Message Text="%24(MSBuildThisFileFullPath) = $(MSBuildThisFileFullPath)" />
+        <Message Text="%24(MSBuildThisFile) = $(MSBuildThisFile)" />
+        <Message Text="%24(MSBuildProjectFile) = $(MSBuildProjectFile)" />
+        <Message Text="%24(MSBuildProjectDirectory) = $(MSBuildProjectDirectory)" />
+
+    </Target>
+
+</Project>

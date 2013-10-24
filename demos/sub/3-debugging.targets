@@ -1,0 +1,10 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <Sub_MSBuildThisFileFullPath>$(MSBuildThisFileFullPath)</Sub_MSBuildThisFileFullPath>
+        <Sub_MSBuildThisFile>$(MSBuildThisFile)</Sub_MSBuildThisFile>
+        <Sub_MSBuildProjectFile>$(MSBuildProjectFile)</Sub_MSBuildProjectFile>
+        <Sub_MSBuildProjectDirectory>$(MSBuildProjectDirectory)</Sub_MSBuildProjectDirectory>
+    </PropertyGroup>
+
+</Project>
