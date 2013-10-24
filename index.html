@@ -76,7 +76,7 @@
             <h2>Targets</h2>
 
             <ul>
-                <li>Targets form the dependency tree</li>
+                <li>Targets group tasks together and form the dependency tree</li>
                 <li><em>Build</em>, <em>Rebuild</em> and <em>Clean</em> are targets</li>
                 <li>Target is only run once in a given build</li>
             </ul>
@@ -90,6 +90,9 @@
 &lt;/Target>
             </code></pre>
 
+            <aside class="notes">
+                Targets group tasks together in a particular order and allow the build process to be factored into smaller units.
+            </aside>
         </section>
 
         <section>
@@ -404,6 +407,32 @@
   &lt;/GetBuildProperties>
 &lt;/Target>
             </pre></code>
+        </section>
+
+        <section>
+            <h2>Popular task collections</h2>
+
+            <ul>
+                <li>
+                    MSBuild Extension Pack<br/>
+                    <small>
+                        <a href="https://msbuildextensionpack.codeplex.com/" target="_blank">
+                            https://msbuildextensionpack.codeplex.com/</a><br/>
+                        <a href="https://www.nuget.org/packages/MSBuild.Extension.Pack/" target="_blank">
+                            https://www.nuget.org/packages/MSBuild.Extension.Pack/</a>
+                    </small>
+                </li>
+                <li>
+                    MSBuild Community Tasks<br/>
+                    <small>
+                        <a href="https://github.com/loresoft/msbuildtasks/" target="_blank">
+                            https://github.com/loresoft/msbuildtasks/</a><br/>
+                        <a href="https://www.nuget.org/packages/MSBuildTasks" target="_blank">
+                            https://www.nuget.org/packages/MSBuildTasks</a>
+                    </small>
+                </li>
+            </ul>
+
         </section>
 
         <section>
