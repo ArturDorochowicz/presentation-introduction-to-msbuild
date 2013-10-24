@@ -1,0 +1,50 @@
+<Project DefaultTargets="MyTarget" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <ItemGroup>
+        <MyFiles Include="file-1.txt; file-2.txt; sub\file-3.txt; sub\file-4.txt" />
+    </ItemGroup>
+
+    <Target Name="MyTarget">
+
+        <Message Text="Count: @(MyFiles->Count())" />
+        <Message Text=" " />
+
+        <Message Text="@(MyFiles, ' :: ')" />
+        <Message Text=" " />
+
+        <Message Text="@(MyFiles->'%(FileName)%(Extension)', ' - ')" />
+        <Message Text=" " />
+
+        <Message Text="%(MyFiles.FileName)%(MyFiles.Extension)" />
+        <Message Text=" " />
+
+        <ItemGroup>
+            <_MyRelativeDirs Include="@(MyFiles->'%(RelativeDir)')" />
+            <MyRelativeDirs Include="@(_MyRelativeDirs->Distinct())" />
+        </ItemGroup>
+
+        <Message Text="@(_MyRelativeDirs)" />
+        <Message Text=" " />
+
+        <Message Text="@(MyRelativeDirs)" />
+        <Message Text=" " />
+
+        <ItemGroup>
+            <MyItems Include="@(MyFiles)" >
+                <Meta>-%(FileName)-</Meta>
+            </MyItems>
+        </ItemGroup>
+
+        <Message Text="@(MyItems->'%(Meta)')" />
+        <Message Text=" " />
+
+        <ItemGroup>
+            <MyItems2 Include="@(MyFiles->'$([System.String]::New('%(MyFiles.FileName)').ToUpperInvariant())')" />
+        </ItemGroup>
+
+        <Message Text="@(MyItems2)" />
+        <Message Text=" " />
+
+    </Target>
+
+</Project>
