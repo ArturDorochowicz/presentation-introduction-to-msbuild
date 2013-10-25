@@ -207,7 +207,7 @@
         $([MSBuild]::GetRegistryValue(
             'HKEY_LOCAL_MACHINE\SOFTWARE\(SampleName)', '(SampleValue)'))
 
-        $([MSBuild]::Add($(NumberOne), $(NumberTwo))
+        $([MSBuild]::Add($(NumberOne), $(NumberTwo)))
 
         $([MSBuild]::BitwiseAnd(
             32, $([System.IO.File]::GetAttributes(tempFile))))
