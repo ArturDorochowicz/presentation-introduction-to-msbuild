@@ -1,6 +1,6 @@
 <Project DefaultTargets="MyTarget" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-    <Import Project="sub\3-debugging.targets" />
+    <Import Project="sub\1-debugging.targets" />
 
     <ItemGroup>
         <MyFiles Include="file-1.txt; file-2.txt" />
